@@ -14,9 +14,8 @@ public class CustomerReverseOrder {
     }
 
     public Customer take() {
-        List<Customer> listKeys = new ArrayList<>(map.keySet());
-        ListIterator<Customer> iterator = listKeys.listIterator(listKeys.size());
-        Customer res = iterator.previous();
+        ArrayDeque<Customer> listKeys = new ArrayDeque<>(map.keySet());
+        Customer res= listKeys.getLast();
         map.remove(res);
         return res;
     }
